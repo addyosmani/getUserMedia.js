@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<movie width="320" height="240" framerate="24">
+	<background color="#ffffff" />
+	<DefineVideoStream width="320" height="240" objectID="1" frames="0" deblocking="0" smoothing="0" codec="0" />
+	<frame>
+		<library>
+			<clip id="clip" objectID="1" />
+		</library>
+	</frame>
+
+</movie>
