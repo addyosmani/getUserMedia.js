@@ -1,5 +1,5 @@
 /**
-* Extension work: Addy Osmani. I want to create a gUM polyfill.
+* Extension work: Addy Osmani. I want to create a getUserMedia.js polyfill.
 * Initial cam plugin by Robert Eisele (robert@xarg.org)
 **/
 

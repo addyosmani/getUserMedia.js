@@ -15,6 +15,7 @@
 */
 
 //MediaStreamOptions
+
 var options = {
 	"audio": true,
 	"video": true
@@ -27,7 +28,9 @@ getUserMedia = function( sourceId, options, successCallback, errorCallback){
 	if(navigator.getUserMedia){
 
 		if(!(options.audio && options.video)){
+
 			console.log('This mode is not supported: NOT_SUPPORTED_ERR');
+			
 		}else{
 
 			// assign the <video> to a variable
