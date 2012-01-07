@@ -5,7 +5,6 @@
 
 /*
 recompiling the flash binaries:
-
 apt-get install swfmill mtasc
 vim src/jscam.xml
 make
