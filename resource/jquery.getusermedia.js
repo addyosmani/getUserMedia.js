@@ -3,12 +3,14 @@
 * Initial cam plugin by Robert Eisele (robert@xarg.org)
 **/
 
+
 /*
 recompiling the flash binaries:
 apt-get install swfmill mtasc
 vim src/jscam.xml
 make
 */
+
 (function ($) {
 
     var webcam = {
