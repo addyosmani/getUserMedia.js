@@ -1,6 +1,6 @@
 /**
 * getUserMedia() polyfill
-* Copyright (c) 2011, Addy Osmani
+* Copyright (c) 2012, Addy Osmani
 * Dual licensed under the MIT or GPL Version 2 licenses.
 * Date: 09/12/2010
 *
@@ -69,6 +69,8 @@ getUserMedia = function( sourceId, options, successCallback, errorCallback){
 		}
 	}else{
 		//fallback to flash
+
+		//this work currently in resources/getusermedia.js
 
 		//console.log('getUserMedia() is not supported in this browser');
 		//return;

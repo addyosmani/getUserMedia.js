@@ -1,6 +1,7 @@
+
+
+/*
 $(function(){
-
-
 
 $("#webcam").webcam({
         width: 320,
@@ -21,6 +22,8 @@ $("#webcam").webcam({
         	console.log('loaded - like the successCallback');
         }
 });
+
+*/
 
 /*
 var pos = 0;
@@ -264,4 +267,4 @@ window.addEventListener("resize", function() {
 }, false);*/
 
 
-});
+
