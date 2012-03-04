@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title>Addy's cross-browser getUserMedia() shim experiments</title>
+</head>
+<body>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<!--[if IE]><script src="/static/excanvas.js"></script><![endif]-->
+
+<script type="text/javascript" src="resource/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="getusermedia.js"></script>
+<script type="text/javascript" src="app.js"></script>
+
+<div id="webcam">
+</div>
+
+<canvas id="canvas"  height="240" width="320"></canvas>
+<a href="#" id="takeSnapshot">Take a picture</a>
+
+<section>
+	<p id="errorMessage"></p>
+</section>
+
+
+</body>
+</html>

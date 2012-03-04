@@ -99,6 +99,7 @@ $(function () {
 
 	window.webcam = options;
 
+
 	function success(stream) {
 
 		if (options.context === 'webrtc') {
@@ -114,7 +115,7 @@ $(function () {
 
 		} else {
 			//flash context
-			
+			console.log('flash loaded');
 		}
 	}
 
