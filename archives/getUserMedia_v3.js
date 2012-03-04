@@ -42,10 +42,40 @@ var options = {
 }
 
 
+
+//Success and error
+
+function gotStream(stream) {
+
+	if(this.context === 'webrtc'){
+	    var video = this.el;
+	    var vendorURL = window.URL || window.webkitURL;
+		video.src = vendorURL? vendorURL.createObjectURL(stream) : stream;
+
+		video.onerror = function () {
+			stream.stop();
+			streamError();
+		};
+		//document.getElementById('splash').hidden = true;
+		//document.getElementById('app').hidden = false;
+	}
+
+}
+
+function noStream() {
+	document.getElementById('errorMessage').textContent = 'No camera available.';
+}
+
+
+
+
 //errorCallback optional
 getUserMedia = function( sourceId, options, successCallback, errorCallback){
 	
-	if(navigator.getUserMedia){
+navigator.getUserMedia_ = navigator.getUserMedia || navigator.webkitGetUserMedia;
+
+if (!!navigator.getUserMedia_){
+
 
 		if(!(options.audio && options.video)){
 
@@ -53,13 +83,46 @@ getUserMedia = function( sourceId, options, successCallback, errorCallback){
 			
 		}else{
 
+	var holder = document.getElementById(sourceId);
+
+	//previously we just used the sourceId, now we
+	//append the video element we need to use to it
+
+	var temp = document.createElement('video');
+	temp.autoplay = true;
+ 	holder.appendChild(temp);
+ 	var video = temp;
+
+ 	this.el = video;
+ 	this.context = 'webrtc';
+	navigator.getUserMedia_('video', successCallback, errorCallback);
+
+	//var video = document.getElementById('monitor');
+	//var canvas = document.getElementById('photo');
+
+
+
+	function streamError() {
+		document.getElementById('errorMessage').textContent = 'Camera error.';
+	}
+
+	function snapshot() {
+		/*
+		canvas.width = video.videoWidth;
+		canvas.height = video.videoHeight;
+		canvas.getContext('2d').drawImage(video, 0, 0);
+		*/
+	}
+
+
+/*
 			// assign the <video> to a variable
 			// this should be more flexible..perhaps pass in the
 			// source directly? That or fall on qSA for other selectors
 			var video = document.getElementById(sourceId);
 
 			// navigator.getUserMedia('video')
-			navigator.getUserMedia(options, successCallback, errorCallback);
+			navigator.webkitGetUserMedia(options, successCallback, errorCallback);
 
 			// This should probably all be shifted to a cleaner object literal
 			successCallback = function( stream ){
@@ -85,6 +148,7 @@ getUserMedia = function( sourceId, options, successCallback, errorCallback){
 			// be displayed
 			
 			var videoRatio = video.videoWidth / video.videoHeight;
+			*/
 
 		}
 	}else{
@@ -92,8 +156,9 @@ getUserMedia = function( sourceId, options, successCallback, errorCallback){
 
 		var source = '<object id="XwebcamXobjectX" type="application/x-shockwave-flash" data="'+options.swffile+'" width="'+options.width+'" height="'+options.height+'"><param name="movie" value="'+options.swffile+'" /><param name="FlashVars" value="mode='+options.mode+'&amp;quality='+options.quality+'" /><param name="allowScriptAccess" value="always" /></object>';
 
-		 var el = document.getElementById(sourceId)
+		 var el = document.getElementById(sourceId);
 		 el.innerHTML =  source;
+		
 
 			(_register = function(run) {
 
@@ -125,10 +190,12 @@ getUserMedia = function( sourceId, options, successCallback, errorCallback){
 
 				//options.onLoad();
 
+				this.context = 'flash';
 				options.onLoad = successCallback;
 
 			    } else if (0 == run) {
-				options.debug("error", "Flash movie not yet registered!");
+				//options.debug("error", "Flash movie not yet registered!");
+				errorCallback();
 			    } else {
 				/* Flash interface not ready yet */
 				window.setTimeout(_register, 1000 * (4 - run), run - 1);
@@ -139,9 +206,7 @@ getUserMedia = function( sourceId, options, successCallback, errorCallback){
 }
 
 //
-getUserMedia('webcam', options, function(){
-	console.log('success');
-});
+getUserMedia('webcam', options, gotStream, noStream);
 //
 
 });

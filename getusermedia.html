@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title>Addy's cross-browser getUserMedia() shim experiments</title>
+</head>
+<body>
+
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+<!-- switch out for jQuery if you'd like. Just using to avoid custom DOMReady stuff for now -->
+<script type="text/javascript" src="resource/domready.js"></script>
+<script type="text/javascript" src="getusermedia.js"></script>
+<script type="text/javascript" src="app.js"></script>
+
+
+<div id="webcam">
+	Webcam placeholder
+</div>
+
+<div id="cams">cams</div>
+<div id="status">status</div>
+
+
+<!--
+<p><video id="monitor" autoplay></video> <canvas id="photo"></canvas></p>
+-->
+
+<section id="splash">
+	<p id="errorMessage"></p>
+</section>
+
+<!--
+<section id="app" hidden>
+	<p><video id="monitor" autoplay></video> <canvas id="photo"></canvas></p>
+	<p><input value="say cheese!" type=button value="&#x1F4F7;" onclick="snapshot()">
+</section>
+-->
+</body>
+</html>
