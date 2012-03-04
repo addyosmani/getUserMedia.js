@@ -9,9 +9,7 @@ getUserMedia = function (options, successCallback, errorCallback) {
 	if ( !! navigator.getUserMedia_) {
 
 		if (!(options.audio && options.video)) {
-
-			console.log('This mode is not supported: NOT_SUPPORTED_ERR');
-
+			throw new Error('This mode is not supported: NOT_SUPPORTED_ERR');
 		} else {
 
 			var container, temp, video;
