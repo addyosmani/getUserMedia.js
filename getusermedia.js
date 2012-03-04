@@ -1,104 +1,83 @@
-/*
-Copyright Addy Osmani 2012
-This is ALL work in progress. Please don't use/tweet/etc just yet.
-*/
+/* getUserMedia - v0.3
+ * http://addyosmani.com
+ * Copyright (c) 2012 Addy Osmani; Licensed MIT, GPL */
 
+getUserMedia = function (options, successCallback, errorCallback) {
 
-getUserMedia = function( sourceId, options, successCallback, errorCallback){
-	
 	navigator.getUserMedia_ = navigator.getUserMedia || navigator.webkitGetUserMedia;
 
-	if (!!navigator.getUserMedia_){
+	if ( !! navigator.getUserMedia__) {
 
-
-		if(!(options.audio && options.video)){
+		if (!(options.audio && options.video)) {
 
 			console.log('This mode is not supported: NOT_SUPPORTED_ERR');
-			
-		}else{
 
-	var holder = document.getElementById(sourceId);
+		} else {
 
+			var container, temp, video;
 
-	// Create a video element for use. We'll
-	// be cleaning up the existing div here shortly.
-	var temp = document.createElement('video');
-	temp.autoplay = true;
- 	holder.appendChild(temp);
- 	var video = temp;
+			container = document.getElementById(options.el);
+			temp = document.createElement('video');
+			temp.width = options.width;
+			temp.height = options.height;
+			temp.autoplay = true;
+			container.appendChild(temp);
 
- 	this.el = video;
- 	this.context = 'webrtc';
-	navigator.getUserMedia_('video', successCallback, errorCallback);
+			video = temp;
+			options.videoEl = video;
+			options.context = 'webrtc';
 
-	//var video = document.getElementById('monitor');
-	//var canvas = document.getElementById('photo');
-
-
-/*
-	function streamError() {
-		document.getElementById('errorMessage').textContent = 'Camera error.';
-	}
-
-	function snapshot() {
-		canvas.width = video.videoWidth;
-		canvas.height = video.videoHeight;
-		canvas.getContext('2d').drawImage(video, 0, 0);
-	}
-*/
-
+			navigator.getUserMedia_('video', successCallback, errorCallback);
 
 		}
-	}else{
+	} else {
 		//fallback to flash
+		var source, el, cam;
 
-		var source = '<object id="XwebcamXobjectX" type="application/x-shockwave-flash" data="'+options.swffile+'" width="'+options.width+'" height="'+options.height+'"><param name="movie" value="'+options.swffile+'" /><param name="FlashVars" value="mode='+options.mode+'&amp;quality='+options.quality+'" /><param name="allowScriptAccess" value="always" /></object>';
+		source = '<object id="XwebcamXobjectX" type="application/x-shockwave-flash" data="' + options.swffile + '" width="' + options.width + '" height="' + options.height + '"><param name="movie" value="' + options.swffile + '" /><param name="FlashVars" value="mode=' + options.mode + '&amp;quality=' + options.quality + '" /><param name="allowScriptAccess" value="always" /></object>';
+		el = document.getElementById(options.el);
+		el.innerHTML = source;
 
-		 var el = document.getElementById(sourceId);
-		 el.innerHTML =  source;
-		
+		(_register = function (run) {
 
-			(_register = function(run) {
+			cam = document.getElementById('XwebcamXobjectX');
 
-			    var cam = document.getElementById('XwebcamXobjectX');
-
-			    if (cam.capture !== undefined) {
+			if (cam.capture !== undefined) {
 
 				/* Simple callback methods are not allowed :-/ */
-				options.capture = function(x) {
-				    try {
-					return cam.capture(x);
-				    } catch(e) {}
+				options.capture = function (x) {
+					try {
+						return cam.capture(x);
+					} catch (e) {}
 				}
-				options.save = function(x) {
-				    try {
-					return cam.save(x);
-				    } catch(e) {}
+				options.save = function (x) {
+					try {
+						return cam.save(x);
+					} catch (e) {}
 				}
-				options.setCamera = function(x) {
-				    try {
-					return cam.setCamera(x);
-				    } catch(e) {}
+				options.setCamera = function (x) {
+					try {
+						return cam.setCamera(x);
+					} catch (e) {}
 				}
-				options.getCameraList = function() {
-				    try {
-					return cam.getCameraList();
-				    } catch(e) {}
+				options.getCameraList = function () {
+					try {
+						return cam.getCameraList();
+					} catch (e) {}
 				}
 
 				//options.onLoad();
-
-				this.context = 'flash';
+				options.context = 'flash';
 				options.onLoad = successCallback;
 
-			    } else if (0 == run) {
+			} else if (0 == run) {
 				//options.debug("error", "Flash movie not yet registered!");
 				errorCallback();
-			    } else {
+			} else {
 				/* Flash interface not ready yet */
 				window.setTimeout(_register, 1000 * (4 - run), run - 1);
-			    }
-			})(3);
+			}
+		})(3);
 
 	}
 }
