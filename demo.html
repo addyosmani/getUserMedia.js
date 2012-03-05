@@ -1,27 +1,53 @@
-<html>
+<html lang="en">
 <head>
 	<title>Addy's cross-browser getUserMedia() shim experiments</title>
 </head>
 <body>
 
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+<div class="container">
+	<header>
+		<h1>Cross-browser getUserMedia() shim demo</h1>
+	</header>
+	<section>
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="row">
+	      <div class="span6">
+	      <h2>Input</h2>
+			<div id="webcam">
+			</div>
+	      </div>
+	      <div class="span6">
+	      <h2>Output</h2>
+	      <canvas id="canvas"  height="240" width="320"></canvas>
+	      </div>
+	    </div>
+	    <div class="row">
+	    	<p id="errorMessage"></p>
+	    </div>
+	    <div class="row">
+	    	<p>If your browser supports getUserMedia()/WebRTC and it has been enabled, the native capabilities of your browser will be used for this page. If not, a flash fallback will be used which will keep the entire demo entirely functional.</p>
+	    </div>
+	  </div>
+	</div>
+	<div class="row">
+    	<div class="span4">&nbsp;</div>
+    	<div class="span4"><a href="#" class="btn btn-primary btn-large" id="takeSnapshot">Take a picture</a></div>
+    	<div class="span4">&nbsp;</div>
+  	</div>
+	</section>
+	<footer>This work-in-progress &copy; Addy Osmani 2012.</footer>
+</div>
+
 
 <!--[if IE]><script src="js/excanvas.js"></script><![endif]-->
 
 <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="js/getusermedia.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
-
-<div id="webcam">
-</div>
-
-<canvas id="canvas"  height="240" width="320"></canvas>
-<a href="#" id="takeSnapshot">Take a picture</a>
-
-<section>
-	<p id="errorMessage"></p>
-</section>
-
 
 </body>
 </html>
