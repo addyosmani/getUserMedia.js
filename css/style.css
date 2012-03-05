@@ -5,11 +5,13 @@
 
 #webcam, #canvas {
 	width: 320px;
+	height:261px;
 	border:10px solid #333;
 	background:#eee;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
+	overflow:hidden;
 }
 
 #webcam {

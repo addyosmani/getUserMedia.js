@@ -12,15 +12,23 @@ getUserMedia = function (options, successCallback, errorCallback) {
 			throw new Error('This mode is not supported: NOT_SUPPORTED_ERR');
 		} else {
 
-			var container, temp, video;
+			var container, temp, video, ow, oh;
 
 			container = document.getElementById(options.el);
 			temp = document.createElement('video');
+
+			// Fix for ratio
+			ow = parseInt(container.offsetWidth);
+			oh = parseInt(container.offsetHeight);
+			if(options.width < ow && options.height < oh){
+				options.width = ow;
+				options.height = oh;
+			}
+
 			temp.width = options.width;
 			temp.height = options.height;
 			temp.autoplay = true;
 			container.appendChild(temp);
-
 			video = temp;
 			options.videoEl = video;
 			options.context = 'webrtc';
