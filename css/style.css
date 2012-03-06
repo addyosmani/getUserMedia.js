@@ -3,7 +3,7 @@
 	margin-top:50px;	
 }
 
-#webcam, #canvas {
+#webcam, #canvas, #output {
 	width: 320px;
 	height:261px;
 	border:10px solid #333;

@@ -6,7 +6,7 @@ getUserMedia = function (options, successCallback, errorCallback) {
 
 	navigator.getUserMedia_ = navigator.getUserMedia || navigator.webkitGetUserMedia;
 
-	if ( !! navigator.getUserMedia_ ) {
+	if (!! navigator.getUserMedia_ ) {
 
 		if ( !(options.audio && options.video) ) {
 			throw new Error('This mode is not supported: NOT_SUPPORTED_ERR');

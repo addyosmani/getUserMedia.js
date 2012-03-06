@@ -1,3 +1,10 @@
+/*
+	This will all be cleaned up shortly.
+	Just rough for experimentation purposes.
+
+	yarp..globals, no namespacing etc etc.
+	all will be cleaned up soon.
+*/
 $(function () {
 
 	var pos = 0,
@@ -46,10 +53,94 @@ $(function () {
 		}
 	}
 
+
+
+	//can be significantly optimized.
+	function drawToCanvas(effect) {
+		var source, glasses, canvas, ctx, pixels;
+
+		source = document.querySelector('#canvas');
+		glasses = new Image();
+		glasses.src = "glasses/i/glasses.png";
+		canvas = document.querySelector("#output");
+		ctx = canvas.getContext("2d");
+
+
+		ctx.drawImage(source, 0, 0, 520, 426);
+
+		pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+		// Hipstergram!
+		if (effect === 'hipster') {
+
+			for (i = 0; i < pixels.data.length; i = i + 4) {
+				pixels.data[i + 0] = pixels.data[i + 0] * 3;
+				pixels.data[i + 1] = pixels.data[i + 1] * 2;
+				pixels.data[i + 2] = pixels.data[i + 2] - 10;
+			}
+
+			ctx.putImageData(pixels, 0, 0);
+
+		}
+
+		// Blur!
+		else if (effect === 'blur') {
+			stackBlurCanvasRGBA('output', 0, 0, 515, 426, 20);
+		}
+
+		// Green Screen
+		else if (effect === 'greenscreen') {
+
+			/* Selectors */
+			var rmin = $('#red input.min').val();
+			var gmin = $('#green input.min').val();
+			var bmin = $('#blue input.min').val();
+			var rmax = $('#red input.max').val();
+			var gmax = $('#green input.max').val();
+			var bmax = $('#blue input.max').val();
+
+			// console.log(rmin,gmin,bmin,rmax,gmax,bmax);
+			for (i = 0; i < pixels.data.length; i = i + 4) {
+				red = pixels.data[i + 0];
+				green = pixels.data[i + 1];
+				blue = pixels.data[i + 2];
+				alpha = pixels.data[i + 3];
+
+				if (red >= rmin && green >= gmin && blue >= bmin && red <= rmax && green <= gmax && blue <= bmax) {
+					pixels.data[i + 3] = 0;
+				}
+			}
+
+			ctx.putImageData(pixels, 0, 0);
+
+		} else if (effect === 'glasses') {
+			var comp = ccv.detect_objects({
+				"canvas": (canvas),
+				"cascade": cascade,
+				"interval": 5,
+				"min_neighbors": 1
+			});
+
+			// Draw glasses on everyone!
+			for (i = 0; i < comp.length; i++) {
+				ctx.drawImage(glasses, comp[i].x, comp[i].y, comp[i].width, comp[i].height);
+			}
+		}
+		//
+	}
+
+
 	jQuery('#takeSnapshot').on('click', function (e) {
 		e.preventDefault();
 		getSnapshot();
 	});
+
+	jQuery('#enableGlasses').on('click', function (e) {
+		e.preventDefault();
+		drawToCanvas('glasses');
+	});
+
+
 
 
 	var options = {
