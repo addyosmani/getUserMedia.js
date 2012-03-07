@@ -1,4 +1,4 @@
-
+/*Styles are only required for the application demo.*/
 .container{
 	margin-top:50px;	
 }
@@ -74,7 +74,7 @@
 }
 
 object {
-	display:block; /* HTML5 fix */
+	display:block;
 	position:relative;
 	z-index:1000;
 }
