@@ -6,10 +6,10 @@ getUserMedia = function (options, successCallback, errorCallback) {
 
 	navigator.getUserMedia_ = navigator.getUserMedia || navigator.webkitGetUserMedia;
 
-	if (!! navigator.getUserMedia_ ) {
+	if (!! navigator.getUserMedia__ ) {
 
 		if ( !(options.audio && options.video) ) {
-			throw new Error('This mode is not supported: NOT_SUPPORTED_ERR');
+			alert('This mode is not yet supported: NOT_SUPPORTED_ERR');
 		} else {
 
 			var container, temp, video, ow, oh;
@@ -37,7 +37,7 @@ getUserMedia = function (options, successCallback, errorCallback) {
 
 		}
 	} else {
-		//fallback to flash
+		// fallback to flash
 		var source, el, cam;
 
 		source = '<object id="XwebcamXobjectX" type="application/x-shockwave-flash" data="' + options.swffile + '" width="' + options.width + '" height="' + options.height + '"><param name="movie" value="' + options.swffile + '" /><param name="FlashVars" value="mode=' + options.mode + '&amp;quality=' + options.quality + '" /><param name="allowScriptAccess" value="always" /></object>';

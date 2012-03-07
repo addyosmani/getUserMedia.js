@@ -1,6 +1,7 @@
 <html lang="en">
 <head>
-	<title>Addy's cross-browser getUserMedia() shim experiments</title>
+	<title>getUserMedia() shim demo</title>
+	<meta name="author" content="Addy Osmani"/>
 </head>
 <body>
 
@@ -26,6 +27,14 @@
 	      </div>
 	    </div>
 	    <div class="row">
+	    <div class="span4">&nbsp;</div>
+	    <div class="span4">	    
+	    <h2>Mutation</h2>
+	    	<canvas id="output"  height="426" width="515"></canvas>
+	    </div></div>
+	    <div class="span4">&nbsp;</div>
+
+	    <div class="row">
 	    	<p id="errorMessage"></p>
 	    </div>
 	    <div class="row">
@@ -35,21 +44,20 @@
 	</div>
 	<div class="row">
     	<div class="span4">&nbsp;</div>
-    	<div class="span4"><a href="#" class="btn btn-primary btn-large" id="takeSnapshot">Take a picture</a></div>
+    	<div class="span4"><a href="#" class="btn btn-primary btn-large" id="takeSnapshot">1. Take a picture</a>&nbsp;<a href="#" class="btn btn-primary btn-large" id="detectFaces">2. Facial detection</a></div>
     	<div class="span4">&nbsp;</div>
   	</div>
 	</section>
 	<footer>This work-in-progress &copy; Addy Osmani 2012.</footer>
 </div>
 
-
 <!--[if IE]><script src="js/excanvas.js"></script><![endif]-->
 
-<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="js/getusermedia.js"></script>
+<script type="text/javascript" src="glasses/ccv.js"></script>
+<script type="text/javascript" src="glasses/face.js"></script>
+<script type="text/javascript" src="glasses/stackblur.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
-
-
 
 </body>
 </html>
