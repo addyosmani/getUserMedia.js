@@ -5,8 +5,9 @@
 </head>
 <body>
 
-<link rel="stylesheet" type="text/css" href="css/style.css">
+
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
 
 <div class="container">
 	<header>
@@ -15,41 +16,41 @@
 	<section>
 	<div class="row-fluid">
 	  <div class="span12">
-	    <div class="row">
+	    <div class="row-fluid">
 	      <div class="span4">
 	      <h2>Input</h2>
 			<div id="webcam">
 			</div>
 	      </div>
-	      <div class="span4">&nbsp;</div>
+	     
 	      <div class="span4">
 	      <h2>Output</h2>
 	      <canvas id="canvas"  height="240" width="320"></canvas>
 	      </div>
-	    </div>
-	    <div class="row">
-	    <div class="span4">&nbsp;</div>
-	    <div class="span4">	    
-	    <h2>Mutation</h2>
+	      <div class="span4">	    
+	    <h2>Face Detection</h2>
 	    	<canvas id="output"  height="426" width="515"></canvas>
-	    </div></div>
-	    <div class="span4">&nbsp;</div>
-
+	    </div>
+	    </div>
+	 
 	    <div class="row">
 	    	<p id="errorMessage"></p>
 	    </div>
 	    <div class="row">
-	    	<p>If your browser supports getUserMedia()/WebRTC and it has been enabled, the native capabilities of your browser will be used for this page. If not, a flash fallback will be used which will keep the entire demo entirely functional.</p>
+	    	<p>Please make sure you are running this demo on a HTTP server :) If your browser supports getUserMedia()/WebRTC and it has been enabled, the native capabilities of your browser will be used for this page. If not, a Flash fallback will be used which will keep the entire demo entirely functional. If for any reason the face detection doesn't detect your face, please try taking another picture with your face positoned more centrally.</p>
 	    </div>
+	    	<div class="row">
+		    	<div class="span4">&nbsp;</div>
+		    	<div class="span4"><button class="btn btn-primary btn-large" id="takeSnapshot">1. Take a picture</button>&nbsp;<button class="btn btn-primary btn-large" id="detectFaces">2. Facial detection</button></div>
+		    	<div class="span4">&nbsp;</div>
+  		</div>
+
 	  </div>
+
 	</div>
-	<div class="row">
-    	<div class="span4">&nbsp;</div>
-    	<div class="span4"><a href="#" class="btn btn-primary btn-large" id="takeSnapshot">1. Take a picture</a>&nbsp;<a href="#" class="btn btn-primary btn-large" id="detectFaces">2. Facial detection</a></div>
-    	<div class="span4">&nbsp;</div>
-  	</div>
+
 	</section>
-	<footer>This work-in-progress &copy; Addy Osmani 2012.</footer>
+	<footer>This work-in-progress &copy; <a href="http://addyosmani.com">Addy Osmani</a> 2012.</footer>
 </div>
 
 <!--[if IE]><script src="js/excanvas.js"></script><![endif]-->
