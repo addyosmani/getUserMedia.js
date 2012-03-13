@@ -11,16 +11,20 @@ The shim currently works in all modern browsers with support for IE still being 
 Getting the shim working is fairly straight-forward. First, include the ```getusermedia.js``` script in your page.
 
 ```javascript
-&lt;script type=&quot;text/javascript&quot; src=&quot;js/getusermedia.js&quot;&gt;&lt;/script&gt;
+<script src="js/getusermedia.js"></script>
 ```
 
 Next, define some mark-up that we can use as a container for the video stream. Below you'll notice that a simple ```div``` has been opted for (as per our demo(. What will happen when we initialize the shim with it is we will either inject a ```video``` tag for use (if WebRTC is enabled) or alternatively an ```object``` tag if the Flash fallback needs to be loaded instead. Whilst most modern browsers will support the ```video``` tag, there is no reason to be using it here if your only interest is relaying the video data for further processing or use elsewhere.
 
-```&lt;div id=&quot;webcam&quot;&gt;&lt;/div&gt;```
+```
+<div id="webcam"></div>
+```
 
 Calling the shim is as simple as:
 
-```getUserMedia(options, success, error);```
+```
+getUserMedia(options, success, error);
+```
 
 where ```options``` is an object containing configuration data, ```success``` is a callback executed when the stream is successfully streaming and ```error``` is a callback for catching stream or device errors.
 
