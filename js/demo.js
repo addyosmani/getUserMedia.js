@@ -1,3 +1,5 @@
+/*globals  $: true, getUserMedia: true, alert:true, ccv:true */
+
 /* app.js
  * Demo application using getUserMedia() shim
  * Copyright (c) 2012 Addy Osmani; Licensed MIT, GPL */ 
@@ -15,7 +17,7 @@
 				this.filter_on = false;
 				this.filter_id = 0;
 				this.canvas = document.getElementById("canvas");
-				this.ctx = canvas.getContext("2d");
+				this.ctx = this.canvas.getContext("2d");
 				this.img = new Image();
 				this.ctx.clearRect(0, 0, 320, 240);
 				this.image = this.ctx.getImageData(0, 0, 320, 240);
@@ -32,7 +34,7 @@
 				});
 
 			} else {
-				alert('No options were supplied to the shim!')
+				alert('No options were supplied to the shim!');
 			}
 		},
 
@@ -72,11 +74,12 @@
 			onTick: function () {},
 			onSave: function (data) {
 
-				var col = data.split(";");
-				var img = App.image;
+				var col = data.split(";"),
+					img = App.image,
+					tmp = null;
 
 				for (var i = 0; i < 320; i++) {
-					var tmp = parseInt(col[i]);
+					tmp = parseInt(col[i], 10);
 					img.data[App.pos + 0] = (tmp >> 16) & 0xff;
 					img.data[App.pos + 1] = (tmp >> 8) & 0xff;
 					img.data[App.pos + 2] = tmp & 0xff;
@@ -106,11 +109,11 @@
 					streamError();
 				};
 
-			} else {
+			} else{
 				//flash context
 			}
+			
 		},
-
 
 		deviceError: function (error) {
 			alert('No camera available.');
@@ -120,14 +123,6 @@
 		changeFilter: function () {
 			if (this.filter_on) {
 				this.filter_id = (this.filter_id + 1) & 7;
-			}
-		},
-
-		toggleFilter: function () {
-			if (this.filter_on = !this.filter_on) {
-				obj.parentNode.style.borderColor = "#c00";
-			} else {
-				obj.parentNode.style.borderColor = "#333";
 			}
 		},
 
@@ -176,23 +171,19 @@
 
 			}
 
-			// Blur!
-			else if (effect === 'blur') {
-				stackBlurCanvasRGBA('output', 0, 0, 515, 426, 20);
-			}
-
 			// Green Screen
 			else if (effect === 'greenscreen') {
 
 				// Selectors 
-				var rmin = $('#red input.min').val();
-				var gmin = $('#green input.min').val();
-				var bmin = $('#blue input.min').val();
-				var rmax = $('#red input.max').val();
-				var gmax = $('#green input.max').val();
-				var bmax = $('#blue input.max').val();
+				var rmin = $('#red input.min').val(),
+					gmin = $('#green input.min').val(),
+					bmin = $('#blue input.min').val(),
+					rmax = $('#red input.max').val(),
+					gmax = $('#green input.max').val(),
+					bmax = $('#blue input.max').val(),
+					green = 0, red = 0, blue = 0;
 
-				// console.log(rmin,gmin,bmin,rmax,gmax,bmax);
+
 				for (i = 0; i < pixels.data.length; i = i + 4) {
 					red = pixels.data[i + 0];
 					green = pixels.data[i + 1];
@@ -207,6 +198,7 @@
 				ctx.putImageData(pixels, 0, 0);
 
 			} else if (effect === 'glasses') {
+
 				var comp = ccv.detect_objects({
 					"canvas": (canvas),
 					"cascade": cascade,
