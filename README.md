@@ -14,9 +14,9 @@ Download the [production version][min] or the [development version][max].
 
 ## Getting Started
 
-getUserMedia.js is a cross-browser shim for the[getUserMedia() API](http: //dev.w3.org/2011/webrtc/editor/getusermedia.html) (now a part of [WebRTC](http://www.webrtc.org/)) that supports accessing a local camera device from inside the browser. Where WebRTC support is detected, it will use the browser's native ```getUserMedia()``` implementation, otherwise a Flash fallback will be loaded instead.
+getUserMedia.js is a cross-browser shim for the [getUserMedia() API](http://dev.w3.org/2011/webrtc/editor/getusermedia.html) (now a part of [WebRTC](http://www.webrtc.org/)) that supports accessing a local camera device from inside the browser. Where WebRTC support is detected, it will use the browser's native ```getUserMedia()``` implementation, otherwise a Flash fallback will be loaded instead.
 
-As you can see in the [demo](http: //addyosmani.github.com/getUserMedia.js/demo.html), what the shim provides is more than enough to create interactive applications that can relay device pixel information on to other HTML5 elements such as the canvas. By relaying, you can easily achieve tasks like capturing images which can be saved, applying filters to the data, or as shown in the demo, even perform tasks like facial detection.
+As you can see in the [demo](http://addyosmani.github.com/getUserMedia.js/demo.html), what the shim provides is more than enough to create interactive applications that can relay device pixel information on to other HTML5 elements such as the canvas. By relaying, you can easily achieve tasks like capturing images which can be saved, applying filters to the data, or as shown in the demo, even perform tasks like facial detection.
 
 The shim currently works in all modern browsers and IE8.Note that the API for this project is still under development and is currently being tweaked.I may end up refactoring this into a jQuery plugin, but wish to keep it vanilla for the time - being.
 
@@ -25,7 +25,7 @@ The shim currently works in all modern browsers and IE8.Note that the API for th
 Getting the shim working is fairly straight - forward, but you may be interested in checking out the sample application in demo.html for further information. First, include the```getusermedia.js```script in your page. Below we're using the minified version built by the grunt.js build process.
 
 ```html
-<script src= "dist/getusermedia.min.js"> </script>
+<script src="dist/getusermedia.min.js"> </script>
 ```
 
 Next, define mark-up that we can use as a container for the video stream. Below you'll notice that a simple ```div``` has been opted for (as per our demo). What will happen when we initialize the shim with it is we will either inject a ```video``` tag for use (if WebRTC is enabled) or alternatively an ```object``` tag if the Flash fallback needs to be loaded instead. Whilst most modern browsers will support the ```video``` tag, there is no reason to be using it here if your only interest is relaying the video data for further processing or use elsewhere.
@@ -157,8 +157,8 @@ t detected you will be provided a Flash fallback.
 
 ##Spec references 
 
-* [http: //dev.w3.org/2011/webrtc/editor/getusermedia.html](http: //dev.w3.org/2011/webrtc/editor/getusermedia.html)
-* [http: //dev.w3.org/2011/webrtc/editor/webrtc.html](http: //dev.w3.org/2011/webrtc/editor/webrtc.html)
+* [http://dev.w3.org/2011/webrtc/editor/getusermedia.html](http://dev.w3.org/2011/webrtc/editor/getusermedia.html)
+* [http://dev.w3.org/2011/webrtc/editor/webrtc.html](http://dev.w3.org/2011/webrtc/editor/webrtc.html)
 
 
 ## License
