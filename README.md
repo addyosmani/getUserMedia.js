@@ -20,8 +20,8 @@ The shim currently works in all modern browsers and IE8.Note that the API for th
 
 Getting the shim working is fairly straight - forward, but you may be interested in checking out the sample application in demo.html for further information. First, include the```getusermedia.js```script in your page.
 
-```javascript 
-< script src = "js/getusermedia.js" > < /script>
+```html
+<script src= "js/getusermedia.js"> </script>
 ```
 
 Next, define mark-up that we can use as a container for the video stream. Below you'll notice that a simple ```div``` has been opted for (as per our demo). What will happen when we initialize the shim with it is we will either inject a ```video``` tag for use (if WebRTC is enabled) or alternatively an ```object``` tag if the Flash fallback needs to be loaded instead. Whilst most modern browsers will support the ```video``` tag, there is no reason to be using it here if your only interest is relaying the video data for further processing or use elsewhere.
@@ -52,8 +52,8 @@ var options = {
 			width: 320,
 			height: 240,
 
-			// the recommended mode to be used is '
-callback '
+			// the recommended mode to be used is 
+			'callback '
 			// where a callback is executed once data
 			// is available
 			mode: "callback",
@@ -84,8 +84,7 @@ Below is a sample ```success``` callback taken from the demo application, where 
 
 ```javascript
 		success: function (stream) {
-			if (App.options.context === '
-webrtc ') {
+			if (App.options.context === 'webrtc ') {
 
 				var video = App.options.videoEl;
 				var vendorURL = window.URL || window.webkitURL;
