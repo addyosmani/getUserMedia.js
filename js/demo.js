@@ -1,8 +1,8 @@
 /*globals  $: true, getUserMedia: true, alert:true, ccv:true */
 
-/* app.js
- * Demo application using getUserMedia() shim
- * Copyright (c) 2012 Addy Osmani; Licensed MIT, GPL */ 
+/*! getUserMedia demo - v0.5.0 - 4/21/2012
+* for use with https://github.com/addyosmani/getUserMedia.js
+* Copyright (c) 2012 addyosmani; Licensed MIT */
 
  (function () {
 	'use strict';
@@ -12,6 +12,7 @@
 		init: function () {
 
 			if ( !! this.options) {
+
 				this.pos = 0;
 				this.cam = null;
 				this.filter_on = false;
@@ -19,8 +20,8 @@
 				this.canvas = document.getElementById("canvas");
 				this.ctx = this.canvas.getContext("2d");
 				this.img = new Image();
-				this.ctx.clearRect(0, 0, 320, 240);
-				this.image = this.ctx.getImageData(0, 0, 320, 240);
+				this.ctx.clearRect(0, 0, this.options.width, this.options.height);
+				this.image = this.ctx.getImageData(0, 0, this.options.width, this.options.height);
 				this.snapshotBtn = document.getElementById('takeSnapshot');
 				this.detectBtn = document.getElementById('detectFaces');
 				
@@ -53,6 +54,11 @@
 			}
 		},
 
+		// options contains the configuration information for the shim
+		// it allows us to specify the width and height of the video
+		// output we're working with, the location of the fallback swf,
+		// events that are triggered onCapture and onSave (for the fallback)
+		// and so on.
 		options: {
 			"audio": true,
 			"video": true,
@@ -61,8 +67,8 @@
 			extern: null,
 			append: true,
 
-			width: 320,
-			height: 240,
+			width: 320, 
+			height: 240, 
 
 			mode: "callback",
 			// callback | save | stream
@@ -79,9 +85,11 @@
 
 				var col = data.split(";"),
 					img = App.image,
-					tmp = null;
+					tmp = null,
+					w = this.width,
+					h = this.height;
 
-				for (var i = 0; i < 320; i++) {
+				for (var i = 0; i < w; i++) { 
 					tmp = parseInt(col[i], 10);
 					img.data[App.pos + 0] = (tmp >> 16) & 0xff;
 					img.data[App.pos + 1] = (tmp >> 8) & 0xff;
@@ -90,7 +98,7 @@
 					App.pos += 4;
 				}
 
-				if (App.pos >= 4 * 320 * 240) {
+				if (App.pos >= 4 * w * h) { 
 					App.ctx.putImageData(img, 0, 0);
 					App.pos = 0;
 				}
@@ -103,8 +111,8 @@
 
 			if (App.options.context === 'webrtc') {
 
-				var video = App.options.videoEl;
-				var vendorURL = window.URL || window.webkitURL;
+				var video = App.options.videoEl,
+					vendorURL = window.URL || window.webkitURL;
 				video.src = vendorURL ? vendorURL.createObjectURL(stream) : stream;
 
 				video.onerror = function () {

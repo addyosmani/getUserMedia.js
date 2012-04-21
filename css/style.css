@@ -33,6 +33,10 @@
 	left:152px;
 }
 
+#webcam video{
+	margin-top:-9px;
+}
+
 #webcam > img {
 	z-index:1;
 	position:absolute;
