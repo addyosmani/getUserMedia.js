@@ -1,0 +1,36 @@
+{
+  "name": "getUserMedia",
+  "description": "A cross-browser shim for getUserMedia()",
+  "version": "0.5.0",
+  "homepage": "https://github.com/addyosmani/getUserMedia.js",
+  "author": {
+    "name": "addyosmani",
+    "email": "addyosmani@gmail.com",
+    "url": "http://addyosmani.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/addyosmani/getUserMedia.js"
+  },
+  "bugs": {
+    "url": "https://github.com/addyosmani/getUserMedia.js/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/addyosmani/getUserMedia.js/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.3.0"
+  },
+  "keywords": [],
+  "engines": {
+    "node": ">= 0.6.15"
+  },
+  "main": "lib/getUserMedia.js",
+  "scripts": {
+    "test": "grunt test"
+  }
+}

@@ -24,7 +24,10 @@
 				this.snapshotBtn = document.getElementById('takeSnapshot');
 				this.detectBtn = document.getElementById('detectFaces');
 				
+				// Initialize getUserMedia with options
 				getUserMedia(this.options, this.success, this.deviceError);
+
+				// Initialize webcam options for fallback
 				window.webcam = this.options;
 
 				this.addEvent('click', this.snapshotBtn, this.getSnapshot);
@@ -63,7 +66,7 @@
 
 			mode: "callback",
 			// callback | save | stream
-			swffile: "fallback/jscam_canvas_only.swf",
+			swffile: "dist/fallback/jscam_canvas_only.swf",
 			quality: 85,
 			context: "",
 
