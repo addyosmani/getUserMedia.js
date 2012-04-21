@@ -141,15 +141,19 @@ The shim has been tested on both single-frame captures and live video captures. 
 
 
 ##Credits
+
 * getUserMedia() shim, demos: Addy Osmani
 * Flash webcam access implementation: Robert Eisele
 * Glasses positoning and filters for demo: Wes Bos
 
 ##Browsers
 
-```getUserMedia()``` is natively supported in [Chrome Canary](http://tools.google.com/dlpage/chromesxs)(simply enable experimental MediaStream compatibility in chrome://flags/) and Opera.next ([Camera build](http://snapshot.opera.com/labs/camera/)). When using the shim, if support isn'
-t detected you will be provided a Flash fallback.##Documentation
-A stable version of the shim was only very recently completed but documentation will be added to the repo(or the wiki) shortly.##Spec references * http: //dev.w3.org/2011/webrtc/editor/getusermedia.html
+```getUserMedia()``` is natively supported in [Chrome](http://tools.google.com/dlpage/chromesxs)(simply enable experimental `MediaStream` compatibility in `chrome://flags/`) and Opera.next ([Camera build](http://snapshot.opera.com/labs/camera/)). When using the shim, if support isn'
+t detected you will be provided a Flash fallback.
+
+##Spec references 
+
+* http: //dev.w3.org/2011/webrtc/editor/getusermedia.html
 * http: //dev.w3.org/2011/webrtc/editor/webrtc.html (broader purpose)
 
 
