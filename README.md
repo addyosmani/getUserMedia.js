@@ -18,10 +18,10 @@ The shim currently works in all modern browsers and IE8.Note that the API for th
 
 ##Walkthough
 
-Getting the shim working is fairly straight - forward, but you may be interested in checking out the sample application in demo.html for further information. First, include the```getusermedia.js```script in your page.
+Getting the shim working is fairly straight - forward, but you may be interested in checking out the sample application in demo.html for further information. First, include the```getusermedia.js```script in your page. Below we're using the minified version built by the grunt.js build process.
 
 ```html
-<script src= "js/getusermedia.js"> </script>
+<script src= "dist/getusermedia.min.js"> </script>
 ```
 
 Next, define mark-up that we can use as a container for the video stream. Below you'll notice that a simple ```div``` has been opted for (as per our demo). What will happen when we initialize the shim with it is we will either inject a ```video``` tag for use (if WebRTC is enabled) or alternatively an ```object``` tag if the Flash fallback needs to be loaded instead. Whilst most modern browsers will support the ```video``` tag, there is no reason to be using it here if your only interest is relaying the video data for further processing or use elsewhere.
@@ -35,6 +35,11 @@ Calling the shim is as simple as: ```getUserMedia(options, success, error);``` w
 We use the configuration object(```options``` in the above) to specify details such as the element to be used as a container, (e.g```webcam```), the quality of the fallback image stream(```85```) and a number of additional callbacks that can be further used to trigger behaviour. Callbacks beginning with```on``` in the below example is a Flash - fallback specific callback.If you don 't need to use it, feel free to exclude it from your code. 
 
 ```javascript
+// options contains the configuration information for the shim
+// it allows us to specify the width and height of the video
+// output we're working with, the location of the fallback swf,
+// events that are triggered onCapture and onSave (for the fallback)
+// and so on.
 var options = {
 
 			"audio": true,
@@ -102,6 +107,38 @@ Below is a sample ```success``` callback taken from the demo application, where 
 ```
 
 At present the ```error``` callback for ```getUserMedia()``` is fairly simple and should be used to inform the user that either WebRTC or Flash were not present or an error was experienced detecting a local device for use.
+
+There are also a number of other interesting snippets in demo.js, such as `getSnapshot()` for capturing snapshots:
+
+```javascript
+		getSnapshot: function () {
+			// If the current context is WebRTC/getUserMedia (something
+			// passed back from the shim to avoid doing further feature
+			// detection), we handle getting video/images for our canvas 
+			// from our HTML5 <video> element.
+			if (App.options.context === 'webrtc') {
+				var video = document.getElementsByTagName('video')[0]; 
+				App.canvas.width = video.videoWidth;
+				App.canvas.height = video.videoHeight;
+				App.canvas.getContext('2d').drawImage(video, 0, 0);
+
+			// Otherwise, if the context is Flash, we ask the shim to
+			// directly call window.webcam, where our shim is located
+			// and ask it to capture for us.
+			} else if(App.options.context === 'flash'){
+				window.webcam.capture();
+				App.changeFilter();
+			}
+			else{
+				alert('No context was supplied to getSnapshot()');
+			}
+		}
+```
+
+##Performance
+
+The shim has been tested on both single-frame captures and live video captures. As expected, native getUserMedia() works absolutely fine when pushing video content to canvas for real-time manipulation. The fallback works fine for single-frame, but as live frame manipulation requires capturing a frame from Flash and mapping it onto canvas every N milliseconds, an observable 'stutter' may be experienced here. I'm working on ways to optimize this further, but for now, as long as you aren't doing anything too intensive, the shim should work fine for a number of use cases.
+
 
 ##Credits
 * getUserMedia() shim, demos: Addy Osmani

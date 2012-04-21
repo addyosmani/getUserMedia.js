@@ -34,7 +34,7 @@
 }
 
 #webcam video{
-	margin-top:-9px;
+	margin-top:-9px; /*forced vertical centering*/
 }
 
 #webcam > img {
@@ -86,4 +86,5 @@ object {
 	display:block;
 	position:relative;
 	z-index:1000;
+	margin-top:9px; /*forced vertical centering*/
 }
