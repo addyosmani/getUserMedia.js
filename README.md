@@ -16,13 +16,13 @@ Download the [production version][min] or the [development version][max].
 
 getUserMedia.js is a cross-browser shim for the [getUserMedia() API](http://dev.w3.org/2011/webrtc/editor/getusermedia.html) (now a part of [WebRTC](http://www.webrtc.org/)) that supports accessing a local camera device from inside the browser. Where WebRTC support is detected, it will use the browser's native ```getUserMedia()``` implementation, otherwise a Flash fallback will be loaded instead.
 
-As you can see in the [demo](http://addyosmani.github.com/getUserMedia.js/demo.html), what the shim provides is more than enough to create interactive applications that can relay device pixel information on to other HTML5 elements such as the canvas. By relaying, you can easily achieve tasks like capturing images which can be saved, applying filters to the data, or as shown in the demo, even perform tasks like facial detection.
+As you can see in the [demo](http://addyosmani.github.com/getUserMedia.js/face-detection-demo/index.html), what the shim provides is more than enough to create interactive applications that can relay device pixel information on to other HTML5 elements such as the canvas. By relaying, you can easily achieve tasks like capturing images which can be saved, applying filters to the data, or as shown in the demo, even perform tasks like facial detection.
 
 The shim currently works in all modern browsers and IE8.Note that the API for this project is still under development and is currently being tweaked.I may end up refactoring this into a jQuery plugin, but wish to keep it vanilla for the time - being.
 
 ##Walkthough
 
-Getting the shim working is fairly straight - forward, but you may be interested in checking out the sample application in demo.html for further information. First, include the```getusermedia.js```script in your page. Below we're using the minified version built by the grunt.js build process.
+Getting the shim working is fairly straight - forward, but you may be interested in checking out the sample application in `face-detection-demo/demo.html` for further information. First, include the```getusermedia.js```script in your page. Below we're using the minified version built by the grunt.js build process.
 
 ```html
 <script src="dist/getusermedia.min.js"> </script>

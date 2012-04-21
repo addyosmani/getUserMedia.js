@@ -78,7 +78,7 @@
 
 			mode: "callback",
 			// callback | save | stream
-			swffile: "dist/fallback/jscam_canvas_only.swf",
+			swffile: "../dist/fallback/jscam_canvas_only.swf",
 			quality: 85,
 			context: "",
 
