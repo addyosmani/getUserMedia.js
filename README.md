@@ -8,9 +8,13 @@ Download the [production version][min] or the [development version][max].
 [min]: https://raw.github.com/addyosmani/getUserMedia.js/master/dist/getUserMedia.min.js
 [max]: https://raw.github.com/addyosmani/getUserMedia.js/master/dist/getUserMedia.js
 
+### Screenshot
+
+![Screenshot](http://f.cl.ly/items/3U3m381z0J3L3a1S0o2Y/Screen%20Shot%202012-04-21%20at%2009.50.37.png)
+
 ## Getting Started
 
-getUserMedia.js is a cross - browser shim for the[getUserMedia() API](http: //dev.w3.org/2011/webrtc/editor/getusermedia.html) (now a part of [WebRTC](http://www.webrtc.org/)) that supports accessing a local camera device from inside the browser. Where WebRTC support is detected, it will use the browser's native ```getUserMedia()``` implementation, otherwise a Flash fallback will be loaded instead.
+getUserMedia.js is a cross-browser shim for the[getUserMedia() API](http: //dev.w3.org/2011/webrtc/editor/getusermedia.html) (now a part of [WebRTC](http://www.webrtc.org/)) that supports accessing a local camera device from inside the browser. Where WebRTC support is detected, it will use the browser's native ```getUserMedia()``` implementation, otherwise a Flash fallback will be loaded instead.
 
 As you can see in the [demo](http: //addyosmani.github.com/getUserMedia.js/demo.html), what the shim provides is more than enough to create interactive applications that can relay device pixel information on to other HTML5 elements such as the canvas. By relaying, you can easily achieve tasks like capturing images which can be saved, applying filters to the data, or as shown in the demo, even perform tasks like facial detection.
 
@@ -153,8 +157,8 @@ t detected you will be provided a Flash fallback.
 
 ##Spec references 
 
-* http: //dev.w3.org/2011/webrtc/editor/getusermedia.html
-* http: //dev.w3.org/2011/webrtc/editor/webrtc.html (broader purpose)
+* [http: //dev.w3.org/2011/webrtc/editor/getusermedia.html](http: //dev.w3.org/2011/webrtc/editor/getusermedia.html)
+* [http: //dev.w3.org/2011/webrtc/editor/webrtc.html](http: //dev.w3.org/2011/webrtc/editor/webrtc.html)
 
 
 ## License
