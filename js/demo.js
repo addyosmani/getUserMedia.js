@@ -11,6 +11,10 @@
 
 		init: function () {
 
+			// The shim requires options to be supplied for it's configuration,
+			// which can be found lower down in this file. Most of the below are
+			// demo specific and should be used for reference within this context
+			// only
 			if ( !! this.options) {
 
 				this.pos = 0;
@@ -31,8 +35,10 @@
 				// Initialize webcam options for fallback
 				window.webcam = this.options;
 
+				// Trigger a snapshot
 				this.addEvent('click', this.snapshotBtn, this.getSnapshot);
 
+				// Trigger face detection (using the glasses option)
 				this.addEvent('click', this.detectBtn, function () {
 					App.drawToCanvas('glasses');
 				});
@@ -138,13 +144,19 @@
 		},
 
 		getSnapshot: function () {
+			// If the current context is WebRTC/getUserMedia (something
+			// passed back from the shim to avoid doing further feature
+			// detection), we handle getting video/images for our canvas 
+			// from our HTML5 <video> element.
 			if (App.options.context === 'webrtc') {
-
 				var video = document.getElementsByTagName('video')[0]; 
 				App.canvas.width = video.videoWidth;
 				App.canvas.height = video.videoHeight;
 				App.canvas.getContext('2d').drawImage(video, 0, 0);
 
+			// Otherwise, if the context is Flash, we ask the shim to
+			// directly call window.webcam, where our shim is located
+			// and ask it to capture for us.
 			} else if(App.options.context === 'flash'){
 
 				window.webcam.capture();
@@ -163,7 +175,6 @@
 			glasses.src = "glasses/i/glasses.png";
 			canvas = document.querySelector("#output");
 			ctx = canvas.getContext("2d");
-
 
 			ctx.drawImage(source, 0, 0, 520, 426);
 
