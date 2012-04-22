@@ -172,7 +172,7 @@
 
 			source = document.querySelector('#canvas');
 			glasses = new Image();
-			glasses.src = "glasses/i/glasses.png";
+			glasses.src = "js/glasses/i/glasses.png";
 			canvas = document.querySelector("#output");
 			ctx = canvas.getContext("2d");
 
