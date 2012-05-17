@@ -15,7 +15,7 @@
 			// which can be found lower down in this file. Most of the below are
 			// demo specific and should be used for reference within this context
 			// only
-			if ( !! this.options) {
+			if ( !!this.options ) {
 
 				this.pos = 0;
 				this.cam = null;
