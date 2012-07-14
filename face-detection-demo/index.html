@@ -4,16 +4,19 @@
 	<meta name="author" content="Addy Osmani"/>
 </head>
 <body>
-<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/demo.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+<link rel="stylesheet" href="css/demo.css">
 <div class="container">
 	<header>
-		<h1>Cross-browser getUserMedia() shim demo</h1>
+		<div class="page-header">
+		  <h1>getUserMedia.js <small>Cross-browser getUserMedia() shim demo</small></h1>
+		</div>
 	</header>
 	<section>
-	<div class="row-fluid">
+	<div class="row">
 	  <div class="span12">
-	    <div class="row-fluid">
+	    <div class="row">
 	      <div class="span4">
 	      <h2>Input</h2>
 			<div id="webcam">
@@ -47,8 +50,8 @@
 	<footer>This shim &copy; <a href="http://addyosmani.com">Addy Osmani</a> 2012.</footer>
 </div>
 
-<!--[if IE]><script src="../js/excanvas.js"></script><![endif]-->
-<script type="text/javascript" src="../lib/getUserMedia.js"></script>
+<!--[if IE]><script src="js/excanvas.js"></script><![endif]-->
+<script type="text/javascript" src="../dist/getUserMedia.min.js"></script>
 <script type="text/javascript" src="js/glasses/ccv.js"></script>
 <script type="text/javascript" src="js/glasses/face.js"></script>
 <script type="text/javascript" src="js/glasses/stackblur.js"></script>

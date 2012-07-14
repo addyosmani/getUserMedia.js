@@ -1,11 +1,7 @@
 /*Styles are only required for the application demo.*/
 .container{
 	margin-top:50px;
-	width:80%;	
-}
-
-.span12 .span4{
-	width:30%;
+	width:80%;
 }
 
 #webcam, #canvas, #output {
