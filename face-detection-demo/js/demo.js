@@ -73,6 +73,8 @@
 			extern: null,
 			append: true,
 
+			// noFallback:true, use if you don't require a fallback
+
 			width: 320, 
 			height: 240, 
 

@@ -1,16 +1,16 @@
 ![getUserMedia.js!](https://github.com/addyosmani/getUserMedia.js/raw/master/media/logo.png)
 
-A cross-browser shim for getUserMedia() (Version 1.0)
+A cross-browser shim for getUserMedia() (Version 1.0RC2)
 
-### Releases
+## Releases
 
-Download [getUserMedia.js 1.0RC1](https://github.com/addyosmani/getUserMedia.js/zipball/v1.0rc) for the latest stable, which includes examples. Alternatively, clone this repo to get the latest edge version.
+Download [getUserMedia.js 1.0RC2](https://github.com/addyosmani/getUserMedia.js/zipball/v1.0rc2) for the latest stable, which includes examples. Alternatively, clone this repo to get the latest edge version.
 
-### Screenshot
+## Screenshot
 
 ![Screenshot](http://f.cl.ly/items/3U3m381z0J3L3a1S0o2Y/Screen%20Shot%202012-04-21%20at%2009.50.37.png)
 
-### New In Version 1.x
+## New In Version 1.x
 
 *Support for the Firefox nightlies*
 
@@ -24,9 +24,16 @@ In previous versions, we created a `getUserMedia()` instance to check for featur
 
 ![bars!](https://github.com/addyosmani/getUserMedia.js/raw/master/media/bars.jpg)
 
+*Support for a new `noFallback` option*
+
+As more and more browsers begin landing stable implementations of getUserMedia, you may wish to have the option to turn off our Flash fallback feature, leaving the library at under 1.7KB overall. This can now easily be done by passing `noFallback: true` in our options. Check out `face-detection-demo/js/demo.js` for where to place this.
+
 *Compatibility with the latest implementations*
 
+![object!](https://github.com/addyosmani/getUserMedia.js/raw/master/media/object.jpg)
+
 Since our last release there have been minor changes to a few implementations, such as Chrome switching to accepting an [object](https://plus.google.com/104758683354871067458/posts/GMNu6WTkPmp) rather than a string for configuration back in May. Although we've been applying these changes in edge fairly quickly, the latest stable now includes all such updates.
+
 
 ## Getting Started
 
