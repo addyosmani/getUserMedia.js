@@ -3,16 +3,30 @@
 A cross-browser shim for getUserMedia() (Version 1.0)
 
 ### Releases
-Download the [production version][min] or the [development version][max].
 
-[min]: https://raw.github.com/addyosmani/getUserMedia.js/master/dist/getUserMedia.min.js
-[max]: https://raw.github.com/addyosmani/getUserMedia.js/master/dist/getUserMedia.js
-
-Alternatively clone this repo to get the examples too.
+Download [getUserMedia.js 1.0RC1](https://github.com/addyosmani/getUserMedia.js/zipball/v1.0rc) for the latest stable, which includes examples. Alternatively, clone this repo to get the latest edge version.
 
 ### Screenshot
 
 ![Screenshot](http://f.cl.ly/items/3U3m381z0J3L3a1S0o2Y/Screen%20Shot%202012-04-21%20at%2009.50.37.png)
+
+### New In Version 1.x
+
+*Support for the Firefox nightlies*
+
+getUserMedia.js now supports the WebRTC implementation in the Firefox nightlies (hidden under a [boolean](http://www.browsomatic.com/2012/07/firefox-16-now-supports-html5.html)). This means we're compatible with all modern browsers, using their getUserMedia implementations where possible and falling back to Flash where necessary.
+
+![firefox!](https://github.com/addyosmani/getUserMedia.js/raw/master/media/firefox.jpg)
+
+*One-time permission requests*
+
+In previous versions, we created a `getUserMedia()` instance to check for feature support, then created a seperate instance for usage. This caused permissions to use a device to be requested twice. In 1.x, we simply re-use the original instance so we require minimal action from the user.
+
+![bars!](https://github.com/addyosmani/getUserMedia.js/raw/master/media/bars.jpg)
+
+*Compatibility with the latest implementations*
+
+Since our last release there have been minor changes to a few implementations, such as Chrome switching to accepting an [object](https://plus.google.com/104758683354871067458/posts/GMNu6WTkPmp) rather than a string for configuration back in May. Although we've been applying these changes in edge fairly quickly, the latest stable now includes all such updates.
 
 ## Getting Started
 
