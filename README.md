@@ -69,47 +69,46 @@ We use the configuration object(```options``` in the above) to specify details s
 // and so on.
 var options = {
 
-			"audio": true,
-			"video": true,
+	"audio": true,
+	"video": true,
 
-			// the element (by id) you wish to apply
-			el: "webcam",
+	// the element (by id) you wish to use for 
+	// displaying the stream from a camera
+	el: "webcam",
 
-			extern: null,
-			append: true,
+	extern: null,
+	append: true,
 
-			// height and width of the output stream
-			// container
+	// height and width of the output stream
+	// container
 
-			width: 320,
-			height: 240,
+	width: 320,
+	height: 240,
 
-			// the recommended mode to be used is 
-			'callback '
-			// where a callback is executed once data
-			// is available
-			mode: "callback",
+	// the recommended mode to be used is 
+	// 'callback ' where a callback is executed 
+	// once data is available
+	mode: "callback",
 
-			// the flash fallback Url
-			swffile: "fallback/jscam_canvas_only.swf",
+	// the flash fallback Url
+	swffile: "fallback/jscam_canvas_only.swf",
 
-			// quality of the fallback stream
-			quality: 85,
-			context: "",
+	// quality of the fallback stream
+	quality: 85,
 
-			debug: function () {},
+	// a debugger callback is available if needed
+	debug: function () {},
 
-			// callback for capturing the fallback stream
-			onCapture: function () {
-				window.webcam.save();
-			},
-			onTick: function () {},
+	// callback for capturing the fallback stream
+	onCapture: function () {
+		window.webcam.save();
+	},
 
-			// callback for saving the stream, useful for
-			// relaying data further.
-			onSave: function (data) {},
-			onLoad: function () {}
-		};
+	// callback for saving the stream, useful for
+	// relaying data further.
+	onSave: function (data) {},
+	onLoad: function () {}
+};
 ```
 
 Below is a sample ```success``` callback taken from the demo application, where we update the video tag we've injected with the stream data.Note that it 's also possible to capture stream errors by executing calls from within ```video.onerror()``` in the example.
