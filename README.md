@@ -26,7 +26,7 @@ In previous versions, we created a `getUserMedia()` instance to check for featur
 
 **Support for a new `noFallback` option**
 
-As more and more browsers begin landing stable implementations of getUserMedia, you may wish to have the option to turn off our Flash fallback feature, leaving the library at under 1.7KB overall. This can now easily be done by passing `noFallback: true` in our options. Check out `face-detection-demo/js/demo.js` for where to place this.
+As more and more browsers begin landing stable implementations of getUserMedia, you may wish to have the option to turn off our Flash fallback feature/ This can now easily be done by passing `noFallback: true` in our options. Check out `face-detection-demo/js/demo.js` for where to place this. Alternatively, feel free to use `lib/getUserMedia.noFallback.js` for a version of the library with Flash support stripped out.
 
 **Compatibility with the latest implementations**
 
