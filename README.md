@@ -1,12 +1,14 @@
-# getUserMedia.js
+![getUserMedia.js!](https://github.com/addyosmani/getUserMedia.js/raw/master/media/logo.png)
 
-A cross-browser shim for getUserMedia()
+A cross-browser shim for getUserMedia() (Version 1.0)
 
 ### Releases
 Download the [production version][min] or the [development version][max].
 
 [min]: https://raw.github.com/addyosmani/getUserMedia.js/master/dist/getUserMedia.min.js
 [max]: https://raw.github.com/addyosmani/getUserMedia.js/master/dist/getUserMedia.js
+
+Alternatively clone this repo to get the examples too.
 
 ### Screenshot
 
