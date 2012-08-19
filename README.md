@@ -62,7 +62,7 @@ var options = {
 			height: 240,
 
 			// the recommended mode to be used is 
-			'callback '
+			//'callback '
 			// where a callback is executed once data
 			// is available
 			mode: "callback",
