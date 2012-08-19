@@ -18,14 +18,14 @@ getUserMedia.js is a cross-browser shim for the [getUserMedia() API](http://dev.
 
 As you can see in the [demo](http://addyosmani.github.com/getUserMedia.js/face-detection-demo/index.html), what the shim provides is more than enough to create interactive applications that can relay device pixel information on to other HTML5 elements such as the canvas. By relaying, you can easily achieve tasks like capturing images which can be saved, applying filters to the data, or as shown in the demo, even perform tasks like facial detection.
 
-The shim currently works in all modern browsers and IE8.Note that the API for this project is still under development and is currently being tweaked.I may end up refactoring this into a jQuery plugin, but wish to keep it vanilla for the time - being.
+The shim currently works in all modern browsers and IE8+.
 
 ##Walkthough
 
 Getting the shim working is fairly straight - forward, but you may be interested in checking out the sample application in `face-detection-demo/demo.html` for further information. First, include the```getusermedia.js```script in your page. Below we're using the minified version built by the grunt.js build process.
 
 ```html
-<script src="dist/getusermedia.min.js"> </script>
+<script src="dist/getUserMedia.min.js"> </script>
 ```
 
 Next, define mark-up that we can use as a container for the video stream. Below you'll notice that a simple ```div``` has been opted for (as per our demo). What will happen when we initialize the shim with it is we will either inject a ```video``` tag for use (if WebRTC is enabled) or alternatively an ```object``` tag if the Flash fallback needs to be loaded instead. Whilst most modern browsers will support the ```video``` tag, there is no reason to be using it here if your only interest is relaying the video data for further processing or use elsewhere.
@@ -62,7 +62,7 @@ var options = {
 			height: 240,
 
 			// the recommended mode to be used is 
-			//'callback '
+			'callback '
 			// where a callback is executed once data
 			// is available
 			mode: "callback",
@@ -147,13 +147,13 @@ The shim has been tested on both single-frame captures and live video captures. 
 ##Credits
 
 * getUserMedia() shim, demos: Addy Osmani
+* Workarounds for multi-bar issues, Firefox nightly support: [Fran Zenzenhofer](http://github.com/franzenzenhofer)
 * Flash webcam access implementation: Robert Eisele
 * Glasses positoning and filters for demo: Wes Bos
 
 ##Browsers
 
-```getUserMedia()``` is natively supported in [Chrome](http://tools.google.com/dlpage/chromesxs)(simply enable experimental `MediaStream` compatibility in `chrome://flags/`) and Opera.next ([Camera build](http://snapshot.opera.com/labs/camera/)). When using the shim, if support isn'
-t detected you will be provided a Flash fallback.
+```getUserMedia()``` is natively supported in Chrome 21, Opera 12 and Firefox nightly (using the [following](http://www.browsomatic.com/2012/07/firefox-16-now-supports-html5.html) setup).
 
 ##Spec references 
 

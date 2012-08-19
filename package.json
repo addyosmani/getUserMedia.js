@@ -1,7 +1,7 @@
 {
   "name": "getUserMedia",
   "description": "Cross-browser getUserMedia() polyfill",
-  "version": "0.6.0",
+  "version": "0.1.0",
   "homepage": "https://github.com/addyosmani/getUserMedia.js",
   "author": {
     "name": "addyosmani",

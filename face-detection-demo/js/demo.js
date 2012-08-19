@@ -1,6 +1,6 @@
 /*globals  $: true, getUserMedia: true, alert:true, ccv:true */
 
-/*! getUserMedia demo - v0.5.0 - 4/21/2012
+/*! getUserMedia demo - v1.0
 * for use with https://github.com/addyosmani/getUserMedia.js
 * Copyright (c) 2012 addyosmani; Licensed MIT */
 
@@ -66,7 +66,7 @@
 		// events that are triggered onCapture and onSave (for the fallback)
 		// and so on.
 		options: {
-			"audio": true,
+			"audio": false, //OTHERWISE FF nightlxy throws an NOT IMPLEMENTED error
 			"video": true,
 			el: "webcam",
 
@@ -117,9 +117,17 @@
 
 			if (App.options.context === 'webrtc') {
 
-				var video = App.options.videoEl,
-					vendorURL = window.URL || window.webkitURL;
-				video.src = vendorURL ? vendorURL.createObjectURL(stream) : stream;
+				var video = App.options.videoEl;
+				
+
+		        if ((typeof MediaStream !== "undefined" && MediaStream !== null) && stream instanceof MediaStream) {
+		          
+		          video.src = stream;
+		          return video.play();
+		        } else {
+		          var vendorURL = window.URL || window.webkitURL;
+		          video.src = vendorURL ? vendorURL.createObjectURL(stream) : stream;
+		        }
 
 				video.onerror = function () {
 					stream.stop();
@@ -127,14 +135,14 @@
 				};
 
 			} else{
-				//flash context
+				// flash context
 			}
 			
 		},
 
 		deviceError: function (error) {
 			alert('No camera available.');
-			//console.error('An error occurred: [CODE ' + error.code + ']');
+			console.error('An error occurred: [CODE ' + error.code + ']');
 		},
 
 		changeFilter: function () {
