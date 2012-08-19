@@ -1,6 +1,6 @@
 ![getUserMedia.js!](https://github.com/addyosmani/getUserMedia.js/raw/master/media/logo.png)
 
-A cross-browser shim for getUserMedia() (Version 1.0RC2)
+getUserMedia.js is a cross-browser shim for the [getUserMedia() API](http://dev.w3.org/2011/webrtc/editor/getusermedia.html) (a part of [WebRTC](http://www.webrtc.org/)) that supports accessing a local camera device from inside the browser. Where WebRTC support is detected, it will use the browsers native ```getUserMedia()``` implementation, otherwise a Flash fallback will be loaded instead.
 
 ## Releases
 
@@ -36,8 +36,6 @@ Since our last release there have been minor changes to a few implementations, s
 
 
 ## Getting Started
-
-getUserMedia.js is a cross-browser shim for the [getUserMedia() API](http://dev.w3.org/2011/webrtc/editor/getusermedia.html) (now a part of [WebRTC](http://www.webrtc.org/)) that supports accessing a local camera device from inside the browser. Where WebRTC support is detected, it will use the browser's native ```getUserMedia()``` implementation, otherwise a Flash fallback will be loaded instead.
 
 As you can see in the [demo](http://addyosmani.github.com/getUserMedia.js/face-detection-demo/index.html), what the shim provides is more than enough to create interactive applications that can relay device pixel information on to other HTML5 elements such as the canvas. By relaying, you can easily achieve tasks like capturing images which can be saved, applying filters to the data, or as shown in the demo, even perform tasks like facial detection.
 
