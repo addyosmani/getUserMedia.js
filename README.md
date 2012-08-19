@@ -12,23 +12,23 @@ Download [getUserMedia.js 1.0RC2](https://github.com/addyosmani/getUserMedia.js/
 
 ## New In Version 1.x
 
-*Support for the Firefox nightlies*
+**Support for the Firefox nightlies**
 
 getUserMedia.js now supports the WebRTC implementation in the Firefox nightlies (hidden under a [boolean](http://www.browsomatic.com/2012/07/firefox-16-now-supports-html5.html)). This means we're compatible with all modern browsers, using their getUserMedia implementations where possible and falling back to Flash where necessary.
 
 ![firefox!](https://github.com/addyosmani/getUserMedia.js/raw/master/media/firefox.jpg)
 
-*One-time permission requests*
+**One-time permission requests**
 
 In previous versions, we created a `getUserMedia()` instance to check for feature support, then created a seperate instance for usage. This caused permissions to use a device to be requested twice. In 1.x, we simply re-use the original instance so we require minimal action from the user.
 
 ![bars!](https://github.com/addyosmani/getUserMedia.js/raw/master/media/bars.jpg)
 
-*Support for a new `noFallback` option*
+**Support for a new `noFallback` option**
 
 As more and more browsers begin landing stable implementations of getUserMedia, you may wish to have the option to turn off our Flash fallback feature, leaving the library at under 1.7KB overall. This can now easily be done by passing `noFallback: true` in our options. Check out `face-detection-demo/js/demo.js` for where to place this.
 
-*Compatibility with the latest implementations*
+**Compatibility with the latest implementations**
 
 ![object!](https://github.com/addyosmani/getUserMedia.js/raw/master/media/object.jpg)
 
@@ -169,7 +169,7 @@ The shim has been tested on both single-frame captures and live video captures. 
 
 ##Credits
 
-* getUserMedia() shim, demos: Addy Osmani
+* getUserMedia() shim, demos: [Addy Osmani](http://github.com/addyosmani)
 * Workarounds for multi-bar issues, Firefox nightly support: [Fran Zenzenhofer](http://github.com/franzenzenhofer)
 * Flash webcam access implementation: Robert Eisele
 * Glasses positoning and filters for demo: Wes Bos
