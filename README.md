@@ -167,7 +167,7 @@ The shim has been tested on both single-frame captures and live video captures. 
 ##Credits
 
 * getUserMedia() shim, demos: [Addy Osmani](http://github.com/addyosmani)
-* Workarounds for multi-bar issues, Firefox nightly support: [Fran Zenzenhofer](http://github.com/franzenzenhofer)
+* Workarounds for multi-bar issues, Firefox nightly support: [Franz Enzenhofer](http://github.com/franzenzenhofer)
 * Flash webcam access implementation: Robert Eisele
 * Glasses positoning and filters for demo: Wes Bos
 
