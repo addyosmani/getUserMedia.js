@@ -121,9 +121,8 @@
 
 				var video = App.options.videoEl;
 				
-
-		        if ((typeof MediaStream !== "undefined" && MediaStream !== null) && stream instanceof MediaStream) {
-		        
+				if ((typeof MediaStream !== "undefined" && MediaStream !== null) && stream instanceof MediaStream) {
+		
 					if (video.mozSrcObject !== undefined) { //FF18a
 						video.mozSrcObject = stream;
 					} else { //FF16a, 17a
@@ -132,10 +131,10 @@
 
 					return video.play();
 
-		        } else {
-		          var vendorURL = window.URL || window.webkitURL;
-		          video.src = vendorURL ? vendorURL.createObjectURL(stream) : stream;
-		        }
+				} else {
+					var vendorURL = window.URL || window.webkitURL;
+					video.src = vendorURL ? vendorURL.createObjectURL(stream) : stream;
+				}
 
 				video.onerror = function () {
 					stream.stop();
