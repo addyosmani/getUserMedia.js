@@ -121,15 +121,20 @@
 
 				var video = App.options.videoEl;
 				
+				if ((typeof MediaStream !== "undefined" && MediaStream !== null) && stream instanceof MediaStream) {
+		
+					if (video.mozSrcObject !== undefined) { //FF18a
+						video.mozSrcObject = stream;
+					} else { //FF16a, 17a
+						video.src = stream;
+					}
 
-		        if ((typeof MediaStream !== "undefined" && MediaStream !== null) && stream instanceof MediaStream) {
-		          
-		          video.src = stream;
-		          return video.play();
-		        } else {
-		          var vendorURL = window.URL || window.webkitURL;
-		          video.src = vendorURL ? vendorURL.createObjectURL(stream) : stream;
-		        }
+					return video.play();
+
+				} else {
+					var vendorURL = window.URL || window.webkitURL;
+					video.src = vendorURL ? vendorURL.createObjectURL(stream) : stream;
+				}
 
 				video.onerror = function () {
 					stream.stop();
