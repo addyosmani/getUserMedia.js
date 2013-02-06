@@ -113,7 +113,7 @@ Below is a sample ```success``` callback taken from the demo application, where 
 
 ```javascript
 		success: function (stream) {
-			if (App.options.context === 'webrtc ') {
+			if (App.options.context === 'webrtc') {
 
 				var video = App.options.videoEl;
 				var vendorURL = window.URL || window.webkitURL;
