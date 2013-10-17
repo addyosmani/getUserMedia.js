@@ -78,9 +78,12 @@
 			width: 320, 
 			height: 240, 
 
+			// option for more flashvars.
+			//fallbackmode: "size",
+
 			mode: "callback",
 			// callback | save | stream
-			swffile: "../dist/fallback/jscam_canvas_only.swf",
+			swffile: "../dist/fallback/as3/webcam.swf",
 			quality: 85,
 			context: "",
 
