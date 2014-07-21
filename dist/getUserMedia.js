@@ -1,6 +1,6 @@
-/*! getUserMedia - v0.1.0 - 2012-08-19
+/*! getUserMedia - v0.1.0 - 2014-07-21
 * https://github.com/addyosmani/getUserMedia.js
-* Copyright (c) 2012 addyosmani; Licensed MIT */
+* Copyright (c) 2014 addyosmani; Licensed MIT */
 
 ;(function (window, document) {
     "use strict";
@@ -81,7 +81,7 @@
                     // Fallback to flash
                     var source, el, cam;
 
-                    source = '<object id="XwebcamXobjectX" type="application/x-shockwave-flash" data="' + options.swffile + '" width="' + options.width + '" height="' + options.height + '"><param name="movie" value="' + options.swffile + '" /><param name="FlashVars" value="mode=' + options.mode + '&amp;quality=' + options.quality + '" /><param name="allowScriptAccess" value="always" /></object>';
+                    source = '<object id="XwebcamXobjectX" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" type="application/x-shockwave-flash" data="' + options.swffile + '" width="' + options.width + '" height="' + options.height + '"><param name="movie" value="' + options.swffile + '" /><param name="FlashVars" value="mode=' + options.mode + '&amp;quality=' + options.quality + '" /><param name="allowScriptAccess" value="always" /></object>';
                     el = document.getElementById(options.el);
                     el.innerHTML = source;
 
