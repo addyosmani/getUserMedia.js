@@ -162,15 +162,15 @@ The shim has been tested on both single-frame captures and live video captures. 
 * Glasses positoning and filters for demo: Wes Bos
 * Little fix for IE9: [Rodrigo Ferreira de Souza](http://github.com/rodfersou)
 
-##Browsers
-
-```getUserMedia()``` is natively supported in Chrome 21, Opera 12 and Firefox nightly (using the [following](http://www.browsomatic.com/2012/07/firefox-16-now-supports-html5.html) setup).
 
 ##Spec references 
 
 * [http://dev.w3.org/2011/webrtc/editor/getusermedia.html](http://dev.w3.org/2011/webrtc/editor/getusermedia.html)
 * [http://dev.w3.org/2011/webrtc/editor/webrtc.html](http://dev.w3.org/2011/webrtc/editor/webrtc.html)
 
+## Alternatives
+
+* [getUserMedia](https://github.com/HenrikJoreteg/getUserMedia) module targeted at evergreen browsers.
 
 ## License
 Copyright (c) 2012-2014 addyosmani  
