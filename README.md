@@ -2,19 +2,11 @@
 
 getUserMedia.js is a cross-browser shim for the [getUserMedia() API](http://dev.w3.org/2011/webrtc/editor/getusermedia.html) (a part of [WebRTC](http://www.webrtc.org/)) that supports accessing a local camera device from inside the browser. Where WebRTC support is detected, it will use the browsers native ```getUserMedia()``` implementation, otherwise a Flash fallback will be loaded instead.
 
-## Releases
-
-Download [getUserMedia.js 1.0RC2](https://github.com/addyosmani/getUserMedia.js/zipball/v1.0rc2) for the latest stable, which includes examples. Alternatively, clone this repo to get the latest edge version.
-
 ## Screenshot
 
 ![Screenshot](http://f.cl.ly/items/3U3m381z0J3L3a1S0o2Y/Screen%20Shot%202012-04-21%20at%2009.50.37.png)
 
-## New In Version 1.x
-
-**Support for the Firefox nightlies**
-
-getUserMedia.js now supports the WebRTC implementation in the Firefox nightlies (hidden under a [boolean](http://www.browsomatic.com/2012/07/firefox-16-now-supports-html5.html)). This means we're compatible with all modern browsers, using their getUserMedia implementations where possible and falling back to Flash where necessary.
+## Notes
 
 ![firefox!](https://github.com/addyosmani/getUserMedia.js/raw/master/media/firefox.jpg)
 
@@ -31,8 +23,6 @@ As more and more browsers begin landing stable implementations of getUserMedia, 
 **Compatibility with the latest implementations**
 
 ![object!](https://github.com/addyosmani/getUserMedia.js/raw/master/media/object.jpg)
-
-Since our last release there have been minor changes to a few implementations, such as Chrome switching to accepting an [object](https://plus.google.com/104758683354871067458/posts/GMNu6WTkPmp) rather than a string for configuration back in May. Although we've been applying these changes in edge fairly quickly, the latest stable now includes all such updates.
 
 
 ## Getting Started
@@ -183,5 +173,5 @@ The shim has been tested on both single-frame captures and live video captures. 
 
 
 ## License
-Copyright (c) 2012 addyosmani  
+Copyright (c) 2012-2014 addyosmani  
 Licensed under the MIT license.
