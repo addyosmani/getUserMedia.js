@@ -1,8 +1,9 @@
-/*! getUserMedia - v0.2.0 - 2014-08-16
+/*!
+* getUserMedia
+* v0.2.0 - 2014-08-16
 * https://github.com/addyosmani/getUserMedia.js
-* Copyright (c) 2014 addyosmani; Licensed MIT */
-
-;(function (window, document) {
+* (c) Addy Osmani; MIT License
+*/;(function (window, document) {
     "use strict";
 
     window.getUserMedia = function (options, successCallback, errorCallback) {
