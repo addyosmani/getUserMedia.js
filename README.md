@@ -1,6 +1,6 @@
 ![getUserMedia.js!](https://github.com/addyosmani/getUserMedia.js/raw/master/media/logo.png)
 
-getUserMedia.js is a cross-browser shim for the [getUserMedia() API](http://dev.w3.org/2011/webrtc/editor/getusermedia.html) (a part of [WebRTC](http://www.webrtc.org/)) that supports accessing a local camera device from inside the browser. Where WebRTC support is detected, it will use the browsers native ```getUserMedia()``` implementation, otherwise a Flash fallback will be loaded instead.
+> getUserMedia.js is a cross-browser shim for the [getUserMedia() API](http://dev.w3.org/2011/webrtc/editor/getusermedia.html) (a part of [WebRTC](http://www.webrtc.org/)) that supports accessing a local camera device from inside the browser. Where WebRTC support is detected, it will use the browsers native ```getUserMedia()``` implementation, otherwise a Flash fallback will be loaded instead.
 
 ## Screenshot
 
