@@ -170,6 +170,7 @@ The shim has been tested on both single-frame captures and live video captures. 
 * Workarounds for multi-bar issues, Firefox nightly support: [Franz Enzenhofer](http://github.com/franzenzenhofer)
 * Flash webcam access implementation: Robert Eisele
 * Glasses positoning and filters for demo: Wes Bos
+* Little fix for IE9: [Rodrigo Ferreira de Souza](http://github.com/rodfersou)
 
 ##Browsers
 
