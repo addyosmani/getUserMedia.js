@@ -1,4 +1,4 @@
-/*! getUserMedia - v0.1.0 - 2014-07-21
+/*! getUserMedia - v0.1.0 - 2014-08-16
 * https://github.com/addyosmani/getUserMedia.js
 * Copyright (c) 2014 addyosmani; Licensed MIT */
 
