@@ -1,5 +1,5 @@
 {
-  "name": "getUserMedia.js",
+  "name": "getusermedia",
   "description": "Cross-browser getUserMedia() polyfill",
   "version": "0.2.0",
   "main": "lib/getUserMedia.js",
