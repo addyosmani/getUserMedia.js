@@ -8,13 +8,13 @@
 
 ## Notes
 
-![firefox!](https://github.com/addyosmani/getUserMedia.js/raw/master/media/firefox.jpg)
+![firefox!](https://github.com/addyosmani/getUserMedia.js/raw/gh-pages/media/firefox.jpg)
 
 **One-time permission requests**
 
 In previous versions, we created a `getUserMedia()` instance to check for feature support, then created a seperate instance for usage. This caused permissions to use a device to be requested twice. In 1.x, we simply re-use the original instance so we require minimal action from the user.
 
-![bars!](https://github.com/addyosmani/getUserMedia.js/raw/master/media/bars.jpg)
+![bars!](https://github.com/addyosmani/getUserMedia.js/raw/gh-pages/media/bars.jpg)
 
 **Support for a new `noFallback` option**
 
@@ -22,7 +22,7 @@ As more and more browsers begin landing stable implementations of getUserMedia, 
 
 **Compatibility with the latest implementations**
 
-![object!](https://github.com/addyosmani/getUserMedia.js/raw/master/media/object.jpg)
+![object!](https://github.com/addyosmani/getUserMedia.js/raw/gh-pages/media/object.jpg)
 
 
 ## Getting Started
