@@ -1,6 +1,6 @@
 /*!
 * getusermedia-js
-* v0.3.0 - 2015-05-10
+* v1.0.0 - 2015-12-20
 * https://github.com/addyosmani/getUserMedia.js
 * (c) Addy Osmani; MIT License
 */;(function (window, document) {
@@ -82,7 +82,16 @@
                     // Fallback to flash
                     var source, el, cam;
 
-                    source = '<object id="XwebcamXobjectX" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" type="application/x-shockwave-flash" data="' + options.swffile + '" width="' + options.width + '" height="' + options.height + '"><param name="movie" value="' + options.swffile + '" /><param name="FlashVars" value="mode=' + options.mode + '&amp;quality=' + options.quality + '" /><param name="allowScriptAccess" value="always" /></object>';
+                    source = '<!--[if IE]>'+
+                    '<object id="XwebcamXobjectX" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="' + options.width + '" height="' + options.height + '">'+
+                    '<param name="movie" value="' + options.swffile + '" />'+
+                    '<![endif]-->'+
+                    '<!--[if !IE]>-->'+
+                    '<object id="XwebcamXobjectX" type="application/x-shockwave-flash" data="' + options.swffile + '" width="' + options.width + '" height="' + options.height + '">'+
+                    '<!--<![endif]-->'+
+                    '<param name="FlashVars" value="mode=' + options.mode + '&amp;quality=' + options.quality + '" />'+
+                    '<param name="allowScriptAccess" value="always" />'+
+                    '</object>';
                     el = document.getElementById(options.el);
                     el.innerHTML = source;
 

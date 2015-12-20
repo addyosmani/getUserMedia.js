@@ -1,6 +1,6 @@
 /*!
 * getusermedia-js
-* v0.3.0 - 2015-05-10
+* v1.0.0 - 2015-12-20
 * https://github.com/addyosmani/getUserMedia.js
 * (c) Addy Osmani; MIT License
 *//*this is a special version of the library with flash fallback support
