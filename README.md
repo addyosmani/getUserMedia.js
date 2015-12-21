@@ -110,7 +110,7 @@ Below is a sample ```success``` callback taken from the demo application, where 
 				video.src = vendorURL ? vendorURL.createObjectURL(stream) : stream;
 
 				video.onerror = function () {
-					stream.getVideoTracks90[0].stop();
+					stream.getVideoTracks()[0].stop();
 					streamError();
 				};
 
