@@ -205,6 +205,7 @@ class JSCam {
 				ExternalInterface.call('webcam.debug', "error", "Unsupported storage mode.");
 			}
 
+			buffer.dispose();
 			buffer = null;
 			return true;
 		}
