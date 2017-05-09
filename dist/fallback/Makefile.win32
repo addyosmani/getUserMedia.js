@@ -1,0 +1,8 @@
+
+main:
+	C:\swfmill-0.2.12-win32\swfmill.exe simple src/jscam.xml jscam.swf
+	C:\mtasc-1.14\mtasc.exe -v -swf jscam.swf -main jscam.as -version 8 -cp src -cp "C:\mtasc-1.14\std"
+
+clean:
+	del -f jscam.swf
+
