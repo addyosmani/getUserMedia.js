@@ -125,6 +125,8 @@
 		
 					if (video.mozSrcObject !== undefined) { //FF18a
 						video.mozSrcObject = stream;
+					} else if (video.srcObject === null) { //Chrome58; stream is an object
+						video.srcObject = stream;
 					} else { //FF16a, 17a
 						video.src = stream;
 					}
